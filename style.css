@@ -1,0 +1,123 @@
+* {
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.app {
+  width: 350px;
+  max-width: 90%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 20px;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.8);
+}
+
+button {
+  padding: 12px;
+  cursor: pointer;
+   border-radius: 10px;
+  border: none;
+  background: #111;
+  color: white;
+  
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+li:hover {
+  transform: translateY(-3px);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.filters button {
+  flex: 1;
+  margin: 5px;
+  background: rgba(0,0,0,0.2);
+  color: white;
+}
+
+.filters button.active {
+  background: black;
+}
+li input {
+  width: 60%;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+#taskCount {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+}
+#clearCompleted {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: crimson;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#clearCompleted:hover {
+  background: darkred;
+}
