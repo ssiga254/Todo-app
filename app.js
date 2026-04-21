@@ -5,6 +5,11 @@ const btn = document.getElementById("addBtn");
 const list = document.getElementById("taskList");
 
 btn.addEventListener("click", addTask);
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
 
 function addTask() {
   const taskText = input.value.trim();
@@ -93,21 +98,21 @@ list.addEventListener("click", (e) => {
     const li = button.closest("li");
     const span = li.querySelector(".task-text");
 
-    const input = document.createElement("input");
-    input.type = "text";
-    input.value = span.innerText;
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.value = span.innerText;
 
-    li.replaceChild(input, span);
-    input.focus();
+    li.replaceChild(editInput, span);
+    editInput.focus();
 
-    input.addEventListener("keypress", (e) => {
+    editInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
-        saveEdit(input, index);
+        saveEdit(editInput, index);
       }
     });
 
-    input.addEventListener("blur", () => {
-      saveEdit(input, index);
+    editInput.addEventListener("blur", () => {
+      saveEdit(editInput, index);
     });
   }
 });
