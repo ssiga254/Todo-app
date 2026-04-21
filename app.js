@@ -13,7 +13,6 @@ input.addEventListener("keypress", (e) => {
 
 function addTask() {
   const taskText = input.value.trim();
-
   if (taskText === "") return;
 
   tasks.push({
@@ -22,11 +21,17 @@ function addTask() {
   });
 
   saveTasks();
-
-  input.value = "";   
-  input.blur();       
+  input.value = "";
 
   renderTasks();
+
+  // 💥 Bounce effect on container
+  const app = document.querySelector(".app");
+  app.classList.add("bounce");
+
+  setTimeout(() => {
+    app.classList.remove("bounce");
+  }, 300);
 }
 
  function saveTasks() {
@@ -84,14 +89,27 @@ list.addEventListener("click", (e) => {
 
   const index = button.dataset.index;
 
-  if (button.classList.contains("delete")) {
+ if (button.classList.contains("delete")) {
+  const li = button.closest("li");
+
+  li.classList.add("fade-out");
+
+  setTimeout(() => {
     tasks.splice(index, 1);
     saveTasks();
     renderTasks();
-  }
+  }, 400);
+}
 
   if (button.classList.contains("complete")) {
     tasks[index].completed = !tasks[index].completed;
+    
+  button.classList.add("check-animate");
+
+  setTimeout(() => {
+    button.classList.remove("check-animate");
+  }, 300);
+    celebrate();
     saveTasks();
     renderTasks();
   }
@@ -144,4 +162,12 @@ clearBtn.addEventListener("click", () => {
 function toggleClearButton() {
   const hasCompleted = tasks.some(task => task.completed);
   clearBtn.style.display = hasCompleted ? "block" : "none";
+}
+function celebrate() {
+  const app = document.querySelector(".app");
+  app.style.boxShadow = "0 0 25px rgba(0,255,0,0.6)";
+
+  setTimeout(() => {
+    app.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+  }, 400);
 }
