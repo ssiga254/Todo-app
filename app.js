@@ -15,16 +15,18 @@ function addTask() {
   const taskText = input.value.trim();
 
   if (taskText === "") return;
-  const task = {
+
+  tasks.push({
     text: taskText,
     completed: false
-  };
+  });
 
-  tasks.push(task);
   saveTasks();
-  renderTasks();
 
-  input.value = "";
+  input.value = "";   
+  input.blur();       
+
+  renderTasks();
 }
 
  function saveTasks() {
