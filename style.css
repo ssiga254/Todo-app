@@ -13,11 +13,11 @@ body {
 }
 
 .app {
-  width: 350px;
-  max-width: 90%;
+  width: 90%;
+  max-width: 400px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
-  padding: 25px;
+  padding: 20px;
   border-radius: 20px;
   color: #333;
   text-align: center;
@@ -26,7 +26,7 @@ body {
 
 .input-section {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 15px;
 }
 
@@ -46,7 +46,7 @@ button {
   border: none;
   background: #111;
   color: white;
-  
+  white-space: nowrap;
   transition: 0.3s;
 }
 button:hover {
@@ -63,11 +63,17 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin: 10px 0;
   padding: 10px;
   background: rgba(255,255,255,0.8);
   border-radius: 10px;
   transition: 0.3s;
+}
+li span {
+  flex: 1;
+  word-break: break-word;
 }
 
 li:hover {
@@ -120,4 +126,21 @@ li input {
 
 #clearCompleted:hover {
   background: darkred;
+}
+li div {
+  display: flex;
+  gap: 5px;
+}
+@media (max-width: 480px) {
+  .app {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    padding: 8px;
+  }
 }
